@@ -4,7 +4,8 @@ defmodule HarpsichordWeb.DataView do
   @attributes ~w(id temperature humidity)a
 
   def render("index.json", %{data: data}) do
-    Enum.map(data, fn(datum) -> encode(datum) end)
+    data
+    |> encode
   end
 
   def render("create.json", %{datum: datum}) do

@@ -5,7 +5,7 @@ defmodule HarpsichordWeb.DataController do
   alias HarpsichordWeb.AmbientDatum
 
   def index(conn, _params) do
-    data = Repo.all(ClimateDatum)
+    data = ClimateDatum.latest |> Repo.one
     render(conn, "index.json", data: data)
   end
 
